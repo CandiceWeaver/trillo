@@ -267,8 +267,17 @@
 	cursor: pointer;
 	transition: all .2s;
 
+	& span {
+		margin-left: 3px;
+		transition: margin-left .2s;
+	}
+
 	&:hover {
 		color: var(--color-grey-dark-1);
+
+		span {
+			margin-left: 8px;
+		}
 	}
 
 	&:focus {
@@ -370,9 +379,13 @@
 	padding: 3rem;
 	margin-bottom: 3.5rem;
 	align-content: space-between;
+	position: relative;
+	overflow: hidden;
 
 	&__text {
 		margin-bottom: 2rem;
+		z-index: 10;
+		position: relative;
 	}
 
 	&__user {
@@ -408,5 +421,17 @@
 		color: var(--color-primary);
 		font-size: 2.2rem;
 		font-weight: 300;
+	}
+
+	&::before {
+		content: "\201C";
+		position: absolute;
+		top: -2.75rem;
+		left: -1rem;
+		line-height: 1;
+		font-size: 20rem;
+		color: var(--color-grey-light-2);
+		font-family: sans-serif;
+		z-index: 1;
 	}
 }
